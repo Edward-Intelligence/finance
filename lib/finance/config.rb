@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
 module Finance
-  include ActiveSupport::Configurable
+  mattr_accessor :eps, default: '1.0e-16'
+  mattr_accessor :guess, default: 1.0
+  mattr_accessor :business_days, default: false
+  mattr_accessor :periodic_compound, default: false
 
-  default_values = {
-    eps: '1.0e-16',
-    guess: 1.0,
-    business_days: false,
-    periodic_compound: false
-  }
-
-  default_values.each do |key, value|
-    config.send("#{key.to_sym}=", value)
+  def self.configure
+    yield self
   end
 end
