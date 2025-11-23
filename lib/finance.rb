@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'active_support/configurable'
 require 'finance/config'
 require 'finance/decimal'
 require 'finance/cashflows'
